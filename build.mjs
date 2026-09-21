@@ -10,6 +10,7 @@ import { alphabetFor } from '@blinkered/engine'
 import {
   build,
   checkDump,
+  readEvidence,
   domainOf,
   headSize,
   scan,
@@ -26,6 +27,11 @@ const CANDIDATES =
 // page some of its words and not others, which no check downstream would catch. If a harvest was
 // killed outright the marker can outlive it; delete it by hand once nothing is fetching.
 const HARVESTING = new URL('searched.tsv.harvesting', import.meta.url).pathname
+// The evidence as committed, read only for its source column; whichever layout this language has.
+const EVIDENCE = [
+  new URL('ATTESTATIONS.tsv', import.meta.url).pathname,
+  new URL('attestations/000.tsv', import.meta.url).pathname,
+].find((path) => existsSync(path))
 if (existsSync(HARVESTING)) {
   throw new Error(
     `a harvest is writing searched.tsv (${readFileSync(HARVESTING, 'utf8').trim()}). ` +
@@ -49,7 +55,12 @@ process.stderr.write(`${LANGUAGE}: ${candidates.size} candidates\n`)
 // this language's sources, because German has no reason to stop over a Japanese download.
 for (const source of SOURCES) {
   if (source.needs === undefined || !statSync(source.needs).isFile()) continue
-  const checked = await checkDump(basename(source.needs), statSync(source.needs).size, headSize)
+  const checked = await checkDump(
+    basename(source.needs),
+    statSync(source.needs).size,
+    headSize,
+    source.from,
+  )
   if (checked.verdict === 'truncated') {
     throw new Error(
       `${source.id} would read a partial ${checked.name}: ` +
@@ -58,12 +69,23 @@ for (const source of SOURCES) {
   }
 }
 
+// What the last build wrote down. A collection whose dump has been deleted is not gone: its
+// testimony and its token total are in here, and reusing them is the whole reason the dumps are
+// disposable. Deleting a dump is how you say "use what is recorded"; putting it back is how you
+// say "read it again".
+let prior
+try {
+  prior = readEvidence('.')
+} catch {
+  // No evidence yet. Every collection is scanned, which is what a first build is.
+}
+
 const results = []
 for (const source of SOURCES) {
   const started = Date.now()
   let result
   try {
-    result = await scan(source.id, source.documents(), candidates, fold)
+    result = await scan(source.id, source.documents(), candidates, fold, source.legible)
   } catch (cause) {
     // Which collection failed, and which file it was reading. A truncated dump fails deep
     // inside a decompressor with no clue as to whose it was, and hunting that down by hand has
@@ -90,10 +112,13 @@ if (HARVEST !== undefined) {
 }
 
 const today = new Date().toISOString().slice(0, 10)
-const built = build(LANGUAGE, candidates, results, COMMON_CUT)
+const built = build(LANGUAGE, candidates, results, COMMON_CUT, prior)
+if (built.reused.length > 0) {
+  process.stderr.write(`  ${'reused from the record'.padEnd(22)} ${built.reused.join(' ')}\n`)
+}
 // Sharded only when one file would be too large for GitHub to take comfortably; a language whose
 // evidence still fits stays a single `ATTESTATIONS.tsv`, and never both at once.
-const written = writeEvidence('.', LANGUAGE, today, built.evidence)
+const written = writeEvidence('.', LANGUAGE, today, built.evidence, built.totals)
 writeFileSync('words.txt', built.words)
 writeFileSync('dropped.tsv', built.dropped)
 process.stderr.write(`evidence: ${written.join(' ')}\n`)

@@ -8,9 +8,9 @@ the curve a careful builder would get, not the order this repository happens to 
 The first two families keep nothing, which is not padding — it is the shape of a rule that needs
 three independent sources.
 
-Candidates: 144,105. Shipped: 71,064.
+Candidates: 144,105. Shipped: 96,387.
 
-Of 14 families, **13 can be checked by fetching** —
+Of 17 families, **16 can be checked by fetching** —
 a stable identifier or a page we fetched ourselves. The other 1 are crawls
 somebody else made, whose locators record where they found the sentence; the document that holds
 it is their published corpus, not the web.
@@ -19,17 +19,20 @@ it is their published corpus, not the web.
 | --- | --- | --- | --- | --- |
 | 1 | `wikimedia` | 0 | 0.0% | — |
 | 2 | `gutenberg` | 0 | 0.0% | — |
-| 3 | `leipzig` | 53,325 | 37.0% | +53,325 |
-| 4 | `tatoeba` | 67,595 | 46.9% | +14,270 |
-| 5 | `ebible` | 69,123 | 48.0% | +1,528 |
-| 6 | `rts.ch` | 69,630 | 48.3% | +507 |
-| 7 | `letemps.ch` | 69,991 | 48.6% | +361 |
-| 8 | `lefigaro.fr` | 70,241 | 48.7% | +250 |
-| 9 | `sudouest.fr` | 70,455 | 48.9% | +214 |
-| 10 | `nouvelobs.com` | 70,653 | 49.0% | +198 |
-| 11 | `lemonde.fr` | 70,837 | 49.2% | +184 |
-| 12 | `lapresse.ca` | 70,957 | 49.2% | +120 |
-| 13 | `la-croix.com` | 71,064 | 49.3% | +107 |
-| 14 | `rtbf.be` | 71,064 | 49.3% | — |
+| 3 | `internetarchive` | 85,961 | 59.7% | +85,961 |
+| 4 | `leipzig` | 92,134 | 63.9% | +6,173 |
+| 5 | `tatoeba` | 95,205 | 66.1% | +3,071 |
+| 6 | `ebible` | 95,603 | 66.3% | +398 |
+| 7 | `rts.ch` | 95,785 | 66.5% | +182 |
+| 8 | `lefigaro.fr` | 95,940 | 66.6% | +155 |
+| 9 | `actualitte.com` | 96,068 | 66.7% | +128 |
+| 10 | `letemps.ch` | 96,153 | 66.7% | +85 |
+| 11 | `nouvelobs.com` | 96,217 | 66.8% | +64 |
+| 12 | `lemonde.fr` | 96,269 | 66.8% | +52 |
+| 13 | `lapresse.ca` | 96,319 | 66.8% | +50 |
+| 14 | `sudouest.fr` | 96,364 | 66.9% | +45 |
+| 15 | `la-croix.com` | 96,385 | 66.9% | +21 |
+| 16 | `franceinfo.fr` | 96,387 | 66.9% | +2 |
+| 17 | `rtbf.be` | 96,387 | 66.9% | — |
 
-**Diminishing returns from family 5** (`ebible`, +1,528), where a family first added less than a twentieth of what the best one did.
+**Diminishing returns from family 5** (`tatoeba`, +3,071), where a family first added less than a twentieth of what the best one did.

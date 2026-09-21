@@ -78,21 +78,58 @@ export const SOURCES = [
   },
   {
     id: 'tat',
+    from: 'https://downloads.tatoeba.org/exports/per_language/fra/fra_sentences.tsv.bz2',
     what: 'Tatoeba — contemporary, conversational',
     needs: `${CACHE}fra_sentences.tsv`,
     documents: () => tatoebaDocuments(`${CACHE}fra_sentences.tsv`),
   },
   {
     id: 'gut',
+    from: 'https://www.gutenberg.org/cache/epub/feeds/pg_catalog.csv',
     what: 'Project Gutenberg — published books, a register nothing else here reaches',
     needs: `${CACHE}gutenberg-fr`,
     documents: () => gutenberg('gutenberg-fr'),
   },
   {
     id: 'ebible:fraLSG',
+    from: 'https://ebible.org/Scriptures/fraLSG_vpl.zip',
     what: 'A translation — a family nothing else here belongs to',
     needs: `${CACHE}ebible-fraLSG/fraLSG_vpl.txt`,
     documents: () => verseDocuments(`${CACHE}ebible-fraLSG/fraLSG_vpl.txt`),
+  },
+  {
+    id: 'ia',
+    // Scanned books are OCR, and OCR fails in a way that looks like text. Clean Gutenberg scores
+    // a median 52% known words and never below 36%; the worst of these scored 1%, an English
+    // book read as Cyrillic. Below this floor a book is not legible enough to attest anything.
+    legible: 0.35,
+    what: 'Internet Archive french books — literature, and the register a newspaper never reaches',
+    needs: `${CACHE}archive-fr`,
+    from: 'https://archive.org/details/booksbylanguage_french',
+    documents: () => {
+      const dir = `${CACHE}archive-fr`
+      // A locator names the text, not the item: the catalogue page holds no word of the book.
+      // `files.tsv` maps an item to the file we read; a book with no recorded name is skipped
+      // rather than cited at a page that cannot support it.
+      const named = new Map(
+        readFileSync(`${dir}/files.tsv`, 'utf8')
+          .split('\n')
+          .filter(Boolean)
+          .map((line) => line.split('\t')),
+      )
+      const books = readdirSync(dir)
+        .filter((file) => file.endsWith('.txt'))
+        .map((file) => file.replace('.txt', ''))
+        .filter((id) => named.has(id))
+        // The filename is percent-encoded: two thirds of them contain spaces, and a locator with
+        // a space in it would split into two locators, because the evidence format spends spaces
+        // as separators. Encoding is also what the URL needs.
+        .map((id) => ({
+          locator: `${id}/${encodeURIComponent(named.get(id))}`,
+          path: `${dir}/${id}.txt`,
+        }))
+      return fileDocuments(books, async (path) => readFileSync(path, 'utf8'))
+    },
   },
 ].filter((source) => {
   // A collection that has not been downloaded is skipped with a warning rather than crashing
@@ -123,6 +160,9 @@ export const HARVEST = existsSync(new URL('searched.tsv', import.meta.url).pathn
  * Paris does not write.
  */
 export const DOMAINS = [
+  // Books and scholarship, a register the news domains above never reach
+  'atramenta.net', 'bibebook.com', 'inlibroveritas.net', 'journals.openedition.org',
+  'persee.fr', 'actualitte.com', 'poesie.webnet.fr', 'oeuvresouvertes.net',
   'lemonde.fr',
   'liberation.fr',
   'lefigaro.fr',
@@ -144,9 +184,6 @@ export const DOMAINS = [
   'letemps.ch',
   'ledevoir.com',
   'lapresse.ca',
-  // Books and scholarship, a register the news domains above never reach
-  'atramenta.net', 'bibebook.com', 'inlibroveritas.net', 'journals.openedition.org',
-  'persee.fr', 'actualitte.com', 'poesie.webnet.fr', 'oeuvresouvertes.net',
 ]
 
 /** Carried over from Blinkered's calibration; must be re-measured before anything ships. */
