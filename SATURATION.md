@@ -8,7 +8,7 @@ the curve a careful builder would get, not the order this repository happens to 
 The first two families keep nothing, which is not padding — it is the shape of a rule that needs
 three independent sources.
 
-Candidates: 144,105. Shipped: 98,540.
+Candidates: 144,105. Shipped: 103,417.
 
 Of 17 families, **16 can be checked by fetching** —
 a stable identifier or a page we fetched ourselves. The other 1 are crawls
@@ -18,21 +18,21 @@ it is their published corpus, not the web.
 | families | added | kept | coverage | gained |
 | --- | --- | --- | --- | --- |
 | 1 | `wikimedia` | 0 | 0.0% | — |
-| 2 | `gutenberg` | 0 | 0.0% | — |
-| 3 | `internetarchive` | 88,802 | 61.6% | +88,802 |
-| 4 | `leipzig` | 94,792 | 65.8% | +5,990 |
-| 5 | `tatoeba` | 97,541 | 67.7% | +2,749 |
-| 6 | `ebible` | 97,844 | 67.9% | +303 |
-| 7 | `rts.ch` | 98,012 | 68.0% | +168 |
-| 8 | `lefigaro.fr` | 98,152 | 68.1% | +140 |
-| 9 | `actualitte.com` | 98,261 | 68.2% | +109 |
-| 10 | `letemps.ch` | 98,335 | 68.2% | +74 |
-| 11 | `nouvelobs.com` | 98,389 | 68.3% | +54 |
-| 12 | `lapresse.ca` | 98,437 | 68.3% | +48 |
-| 13 | `lemonde.fr` | 98,481 | 68.3% | +44 |
-| 14 | `sudouest.fr` | 98,518 | 68.4% | +37 |
-| 15 | `la-croix.com` | 98,539 | 68.4% | +21 |
-| 16 | `franceinfo.fr` | 98,540 | 68.4% | +1 |
-| 17 | `rtbf.be` | 98,540 | 68.4% | — |
+| 2 | `internetarchive` | 0 | 0.0% | — |
+| 3 | `gutenberg` | 94,484 | 65.6% | +94,484 |
+| 4 | `leipzig` | 100,366 | 69.6% | +5,882 |
+| 5 | `tatoeba` | 102,604 | 71.2% | +2,238 |
+| 6 | `ebible` | 102,837 | 71.4% | +233 |
+| 7 | `rts.ch` | 102,981 | 71.5% | +144 |
+| 8 | `lefigaro.fr` | 103,085 | 71.5% | +104 |
+| 9 | `actualitte.com` | 103,186 | 71.6% | +101 |
+| 10 | `letemps.ch` | 103,249 | 71.6% | +63 |
+| 11 | `nouvelobs.com` | 103,294 | 71.7% | +45 |
+| 12 | `lapresse.ca` | 103,334 | 71.7% | +40 |
+| 13 | `lemonde.fr` | 103,369 | 71.7% | +35 |
+| 14 | `sudouest.fr` | 103,395 | 71.7% | +26 |
+| 15 | `la-croix.com` | 103,416 | 71.8% | +21 |
+| 16 | `franceinfo.fr` | 103,417 | 71.8% | +1 |
+| 17 | `rtbf.be` | 103,417 | 71.8% | — |
 
-**Diminishing returns from family 5** (`tatoeba`, +2,749), where a family first added less than a twentieth of what the best one did.
+**Diminishing returns from family 5** (`tatoeba`, +2,238), where a family first added less than a twentieth of what the best one did.
