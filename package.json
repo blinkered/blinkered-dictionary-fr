@@ -1,0 +1,17 @@
+{
+  "name": "@blinkered/dictionary-fr",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "conform": "node conform.mjs",
+    "saturation": "node saturation.mjs",
+    "verify": "node verify.mjs",
+    "dumps": "node check-dumps.mjs"
+  },
+  "dependencies": {
+    "@blinkered/attestation": "link:../blinkered-attestation",
+    "@blinkered/engine": "link:../blinkered/packages/engine"
+  }
+}
