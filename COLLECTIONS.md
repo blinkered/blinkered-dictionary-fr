@@ -12,16 +12,16 @@ collection rather than reuse its record only has to put the file back where the 
 
 | collection | tokens | what it is | where it came from |
 | --- | ---: | --- | --- |
-| `wiki:fr` | 1,173,847,076 | French Wikipedia — modern encyclopedic prose | [frwiki.xml.bz2](https://dumps.wikimedia.org/frwiki/latest/frwiki-latest-pages-articles.xml.bz2) |
-| `gut` | 195,733,426 | Project Gutenberg — published books, a register nothing else here reaches | [gutenberg-fr](https://www.gutenberg.org/cache/epub/feeds/pg_catalog.csv) |
-| `ia` | 31,585,055 | Internet Archive french books — literature, and the register a newspaper never reaches | [archive-fr](https://archive.org/details/booksbylanguage_french) |
-| `wikisource:fr` | 13,929,245 | Wikisource — same Wikimedia family, so it corroborates rather than counts | [frwikisource.xml.bz2](https://dumps.wikimedia.org/frwikisource/latest/frwikisource-latest-pages-articles.xml.bz2) |
-| `tat` | 3,946,680 | Tatoeba — contemporary, conversational | [fra_sentences.tsv](https://downloads.tatoeba.org/exports/per_language/fra/fra_sentences.tsv.bz2) |
-| `lz:fra_news_2023_1M` | 2,883,591 | Leipzig fra_news_2023_1M — modern news, cited by the page each sentence came from | fra_news_2023_1M |
-| `lz:fra_news_2024_1M` | 2,684,996 | Leipzig fra_news_2024_1M — modern news, cited by the page each sentence came from | fra_news_2024_1M |
+| `wiki:fr` | 1,173,847,076 |  | — |
+| `gut` | 195,733,426 |  | — |
+| `ia` | 43,033,611 | Internet Archive french books — literature, and the register a newspaper never reaches | [archive-fr](https://archive.org/details/booksbylanguage_french) |
+| `wikisource:fr` | 13,929,245 |  | — |
+| `tat` | 3,946,680 |  | — |
+| `lz:fra_news_2023_1M` | 2,883,591 |  | — |
+| `lz:fra_news_2024_1M` | 2,684,996 |  | — |
 | `web:actualitte.com` | 832,498 |  | fetched from `actualitte.com`, recorded in `searched.tsv` |
 | `web:lefigaro.fr` | 649,702 |  | fetched from `lefigaro.fr`, recorded in `searched.tsv` |
-| `ebible:fraLSG` | 533,042 | A translation — a family nothing else here belongs to | [fraLSG_vpl.txt](https://ebible.org/Scriptures/fraLSG_vpl.zip) |
+| `ebible:fraLSG` | 533,042 |  | — |
 | `web:la-croix.com` | 401,204 |  | fetched from `la-croix.com`, recorded in `searched.tsv` |
 | `web:lemonde.fr` | 381,199 |  | fetched from `lemonde.fr`, recorded in `searched.tsv` |
 | `web:rts.ch` | 221,466 |  | fetched from `rts.ch`, recorded in `searched.tsv` |

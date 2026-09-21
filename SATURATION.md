@@ -8,7 +8,7 @@ the curve a careful builder would get, not the order this repository happens to 
 The first two families keep nothing, which is not padding — it is the shape of a rule that needs
 three independent sources.
 
-Candidates: 144,105. Shipped: 96,387.
+Candidates: 144,105. Shipped: 98,540.
 
 Of 17 families, **16 can be checked by fetching** —
 a stable identifier or a page we fetched ourselves. The other 1 are crawls
@@ -19,20 +19,20 @@ it is their published corpus, not the web.
 | --- | --- | --- | --- | --- |
 | 1 | `wikimedia` | 0 | 0.0% | — |
 | 2 | `gutenberg` | 0 | 0.0% | — |
-| 3 | `internetarchive` | 85,961 | 59.7% | +85,961 |
-| 4 | `leipzig` | 92,134 | 63.9% | +6,173 |
-| 5 | `tatoeba` | 95,205 | 66.1% | +3,071 |
-| 6 | `ebible` | 95,603 | 66.3% | +398 |
-| 7 | `rts.ch` | 95,785 | 66.5% | +182 |
-| 8 | `lefigaro.fr` | 95,940 | 66.6% | +155 |
-| 9 | `actualitte.com` | 96,068 | 66.7% | +128 |
-| 10 | `letemps.ch` | 96,153 | 66.7% | +85 |
-| 11 | `nouvelobs.com` | 96,217 | 66.8% | +64 |
-| 12 | `lemonde.fr` | 96,269 | 66.8% | +52 |
-| 13 | `lapresse.ca` | 96,319 | 66.8% | +50 |
-| 14 | `sudouest.fr` | 96,364 | 66.9% | +45 |
-| 15 | `la-croix.com` | 96,385 | 66.9% | +21 |
-| 16 | `franceinfo.fr` | 96,387 | 66.9% | +2 |
-| 17 | `rtbf.be` | 96,387 | 66.9% | — |
+| 3 | `internetarchive` | 88,802 | 61.6% | +88,802 |
+| 4 | `leipzig` | 94,792 | 65.8% | +5,990 |
+| 5 | `tatoeba` | 97,541 | 67.7% | +2,749 |
+| 6 | `ebible` | 97,844 | 67.9% | +303 |
+| 7 | `rts.ch` | 98,012 | 68.0% | +168 |
+| 8 | `lefigaro.fr` | 98,152 | 68.1% | +140 |
+| 9 | `actualitte.com` | 98,261 | 68.2% | +109 |
+| 10 | `letemps.ch` | 98,335 | 68.2% | +74 |
+| 11 | `nouvelobs.com` | 98,389 | 68.3% | +54 |
+| 12 | `lapresse.ca` | 98,437 | 68.3% | +48 |
+| 13 | `lemonde.fr` | 98,481 | 68.3% | +44 |
+| 14 | `sudouest.fr` | 98,518 | 68.4% | +37 |
+| 15 | `la-croix.com` | 98,539 | 68.4% | +21 |
+| 16 | `franceinfo.fr` | 98,540 | 68.4% | +1 |
+| 17 | `rtbf.be` | 98,540 | 68.4% | — |
 
-**Diminishing returns from family 5** (`tatoeba`, +3,071), where a family first added less than a twentieth of what the best one did.
+**Diminishing returns from family 5** (`tatoeba`, +2,749), where a family first added less than a twentieth of what the best one did.
