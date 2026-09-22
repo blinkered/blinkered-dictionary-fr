@@ -14,7 +14,7 @@ collection rather than reuse its record only has to put the file back where the 
 | --- | ---: | --- | --- |
 | `wiki:fr` | 1,173,847,076 |  | — |
 | `gut` | 195,733,426 |  | — |
-| `ia` | 82,695,385 | Internet Archive french books — literature, and the register a newspaper never reaches | [archive-fr](https://archive.org/details/booksbylanguage_french) |
+| `ia` | 92,086,483 | Internet Archive french books — literature, and the register a newspaper never reaches | [archive-fr](https://archive.org/details/booksbylanguage_french) |
 | `wikisource:fr` | 13,929,245 |  | — |
 | `tat` | 3,946,680 |  | — |
 | `lz:fra_news_2023_1M` | 2,883,591 |  | — |
